@@ -1,0 +1,17 @@
+#include <LiquidCrystal.h> // include the library code
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // initialize interface pins
+void setup() 
+{
+lcd.begin(20, 2);
+Serial.begin(9600);
+}
+char str;
+void loop()
+{ 
+  if(Serial.available())
+  {
+      str = Serial.read();
+      Serial.println(str);
+      lcd.print(str);
+    }
+}
